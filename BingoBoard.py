@@ -8,11 +8,11 @@ class BingoBoard:
 
     def generate_board_image(self, file_name = 'bingo'):
 
-        #set font to comic sans for maximum meme
+        # set font to comic sans for maximum meme
         font = ImageFont.truetype("fonts/comic-sans.ttf", 28, encoding="unic")
 
-        #boxes are 250px by 250px with 10px margins
-        #approx 15 characers per line
+        # boxes are 250px by 250px with 10px margins
+        # approx 15 characers per line
         canvas = Image.open("bingo_template.png")
         draw = ImageDraw.Draw(canvas)
 
@@ -33,7 +33,7 @@ class BingoBoard:
         for row in self.bingo_board:
 
             for cell in row:
-                #make sure no line goes past 13 characters
+                # make sure no line goes past 13 characters
                 text = textwrap.fill(cell[0], maxCharPerLine)
                 draw.text((x, y), text, 'blue', font)
                 x = x + cellWidth
